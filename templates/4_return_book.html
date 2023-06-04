@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Return Book{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/secondary.css">
+{% endblock %}
+{% block content %}
+    <h1>Return Book</h1>
+    <h3>If the Return is made, you will be transferred to the loans page</h3>
+    {% if error_message %}
+    <p class="error">{{ error_message }} <br> <hr> {{not_done}}</p>
+    {% endif %}
+    <form method="POST" action="/return_book">
+        <label for="customer_id">Customer Name:</label>
+        <select name="customer_id" required>
+            {% for customer in customers %}
+                <option value="{{ customer[0] }}">{{ customer[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="book_id">Book Name:</label>
+        <select name="book_id" required>
+            {% for book in books %}
+                <option value="{{ book[0] }}">{{ book[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="return_date">Return Date:</label>
+        <input type="date" name="return_date" required><br><br>
+
+        <input type="submit" value="Return">
+    </form>
+    <p class="important">
+{% endblock %}

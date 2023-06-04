@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}Loans{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/table.css">
+    <style>
+  th {
+    width: 16.67%;
+  }
+    </style>
+    {% endblock %}
+    {% block content %}
+    <h1>Loans</h1>
+    <h3>On this page you can see all the loans your customers have</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Loan number</th>
+                <th>Customer Name</th>
+                <th>Book Name</th>
+                <th>Loan Date</th>
+                <th>Expected Return Date</th>
+                <th>Actual Return Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for loan in loans %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ loan[5] }}</td>
+                <td>{{ loan[6] }}</td>
+                <td>{{ loan[2] }}</td>
+                <td>{{ loan[3] }}</td>
+                <td>{{ loan[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">Total loans: {{ loans|length }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <p class="important">
+{% endblock %}

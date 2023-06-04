@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/secondary.css">
+{% endblock %}
+
+{% block content %}  
+<style>
+    .asterisk {
+    font-weight: bold;
+}
+
+</style>
+    <h1>Search Page</h1> 
+    <h2>In this area, you can search for customers and books by their name and get basic information about them</h2>
+    
+    <h2>Search by Customer Name</h2>
+    <form method="POST">
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required>
+        <input type="submit" value="Search Customer">
+    </form>
+
+    <h2>Search by Book Name</h2>
+    <form method="POST">
+        <label for="book_Name">Book Name:</label>
+        <input type="text" id="book_Name" name="book_Name" required>
+        <input type="submit" value="Search Book">
+    </form>
+
+    {% if customer %}
+        <h2>Customer Information</h2>
+        <h4><strong>customer number:</strong> {{ customer[0] }}</p></h4>
+        <p><strong>Name:</strong> {{ customer[1] }}</p>
+        <p><strong>City:</strong> {{ customer[2] }}</p>
+        <p><strong>Age:</strong> {{ customer[3] }}</p>
+
+        {% if books %}
+            <h2>Books Borrowed</h2>
+            {% for book in books %}
+                <h4><strong>Book number:</strong> {{ book[0] }}</p></h4>
+                <p><strong>Book Name:</strong> {{ book[1] }}</p>
+                <p><strong>Loan Date:</strong> {{ book[5] }}</p>
+                <p><strong>Need to return in:</strong> {{ book[6] }}</p> 
+            {% endfor %}
+        {% else %}
+    
+        {% endif %}
+    {% endif %}
+
+    {% if book %}
+        <h2>Book Information</h2>
+        
+        <h4><strong>book number:</strong> {{ book[0] }}</p></h4>
+        <p><strong>Name:</strong> {{ book[1] }}</p>
+        <p><strong>Author:</strong> {{ book[2] }}</p>
+        <p><strong>Year Published:</strong> {{ book[3] }}</p>
+
+        {% if customers %}
+            <h2>Customers Who Borrowed the Same Book</h2>
+            {% for customer in customers %}
+                <h4><strong>customer number:</strong> {{ customer[0] }}</p></h4>
+                <p><strong>Customer Name:</strong> {{ customer[1] }}</p>
+                <p><strong>City:</strong> {{ customer[2] }}</p>
+                <p><strong>Age:</strong> {{ customer[3] }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+{% endblock %}

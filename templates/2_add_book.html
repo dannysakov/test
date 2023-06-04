@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Book{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/secondary.css">
+{% endblock %}
+
+{% block content %}
+    <h1>Add a New Book</h1>
+    <h3>In this area you can Add a new Book</h3>
+    {% if book_added %}
+        <p class="success-message">  The book has been successfully added</p>
+    {% endif %}
+    <form method="post" action="/add_book">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br><br>
+        <label for="year_published">Year Published:</label>
+        <input type="number" id="year_published" name="year_published" required><br><br>
+        <label for="book_type">Book Type:</label>
+        <select id="book_type" name="book_type" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br><br>
+        <input type="submit" value="Add Book">
+    </form>
+{% endblock %}

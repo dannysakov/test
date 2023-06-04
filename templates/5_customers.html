@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}Customers{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/table.css">
+    <style>
+        th {
+            width: 25%;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Customers</h1>
+    <h2>On this page you can see all the customers you have</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Customer number</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer[0] }}</td>
+                <td>{{ customer[1] }}</td>
+                <td>{{ customer[2] }}</td>
+                <td>{{ customer[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total customers: {{ customers|length }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <hr>
+    <h3>Here you can delete customers by their number in the list</h3>
+    <p class="Warning">Warning: This action is permanent</p>
+    {% if error_message %}
+    <p class="error">{{ error_message }}
+    <hr> <p class="Refresh">{{Refresh}}
+    {% endif %}
+    <form action="/delete_customer" method="post">
+        <input type="text" name="customer_id" placeholder="Customer ID" required>
+        <button type="submit">Delete Customer</button>
+    </form>
+    <p class="important">
+{% endblock %}

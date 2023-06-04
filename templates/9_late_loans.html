@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Late Loans{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/table.css">
+    <style>
+        th {
+          width: 20%;
+        }
+          </style>
+    {% endblock %}
+    {% block content %}  
+    <h1>Late Loans</h1>
+    <h3>Here you can see all the loans that have not been returned on time</h3>
+    {% if late_loans %}
+        <table>
+            <tr>
+                <th>late loan number</th>
+                <th>Customer Name</th>
+                <th>Book Name</th>
+                <th>Loan Date</th>
+                <th>Had to return in...</th>
+            </tr>
+            {% for loan in late_loans %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ loan[5] }}</td>
+                    <td>{{ loan[6] }}</td>
+                    <td>{{ loan[2] }}</td>
+                    <td>{{ loan[3] }}</td>
+                </tr>
+            {% endfor %}
+            <tfoot>
+                <tr>
+                    <td colspan="5">Total late loans: {{ late_loans|length }}</td>
+                </tr>
+            </tfoot>
+        </table>
+         
+    {% else %}
+        <p>No late loans found.</p>
+    {% endif %}
+{% endblock %}

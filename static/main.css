@@ -1,0 +1,74 @@
+body {
+  background: linear-gradient(to right, #ffffff, #00d9ff);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+h1 {
+  text-decoration: underline;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.active:hover {
+  background-color: #006500;
+}
+
+#content {
+  margin: 20px;
+}
+
+#header-word {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#footer {
+  text-align: center;
+  color: #666;
+}
+
+/* קוד עיצוב עבור מסכים ברוחב פחות מ-768 פיקסלים */
+@media (max-width: 768px) {
+  /* ניתן להוסיף כאן את הסגנון הרלוונטי למסכים ברוחב פחות מ-768 פיקסלים */
+}
+
+/* קוד עיצוב עבור מסכים ברוחב פחות מ-480 פיקסלים */
+@media (max-width: 480px) {
+  /* ניתן להוסיף כאן את הסגנון הרלוונטי למסכים ברוחב פחות מ-480 פיקסלים */
+}

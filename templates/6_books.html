@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block title %}Books{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/table.css">
+    <style>
+        th {
+          width: 20%;
+        }
+          </style>
+    {% endblock %}
+    {% block content %}
+    <h1>Books</h1>
+   <h2>On this page you can see all the books that you have</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Book number</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Year Published</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+            <tr>
+                <td>{{ book[0] }}</td>
+                <td>{{ book[1] }}</td>
+                <td>{{ book[2] }}</td>
+                <td>{{ book[3] }}</td>
+                <td>{{ book[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Total books: {{ books|length }}</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <hr>
+    <h3>Here you can delete books by their number in the list</h3>
+    <p class="Warning" >Warning: This action is permanent</p>
+    {% if error_message %}
+    <p class="error">{{ error_message }}
+    <hr> <p class="Refresh">{{Refresh}}
+{% endif %}
+    <form action="/delete_book" method="post">
+        <input type="text" name="book_id" placeholder="Book ID" required>
+        <button type="submit">Delete Book</button>
+      </form>
+    <br>
+    <p class="important">
+{% endblock %}
+

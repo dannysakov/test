@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div id="header-word">בס״ד</div>
+    <ul>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/add_book">add_book</a></li>
+        <li><a href="/add_customer">add_customer</a></li>
+        <li><a href="/borrow_book">borrow_book</a></li>
+        <li><a href="/return_book">return_book</a></li>
+        <li><a href="/customers">customers</a></li>
+        <li><a href="/books">books</a></li>
+        <li><a href="/loans">loans</a></li>
+        <li><a href="/late_loans">late_loans</a></li>
+        <li><a href="/Search">Search</a></li>
+      </ul>
+      
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      {% block footer %}
+      <br>
+      <h4>  &copy;  The site was created by another random guy, more information in the following link- <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">the link</a>.</h4>
+      {% endblock %}
+    </div>
+  </body>
+</html>
+

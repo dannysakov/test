@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Add Customer{% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static/secondary.css">
+{% endblock %}
+{% block content %}
+    <h1>Add a New Customer</h1>
+    <h3>In this area you can create a new customer</h3>
+    {% if customer_added %}
+    <p class="success-message">  The Customer has been successfully added </p>
+{% endif %}
+        <form method="post" action="/add_customer">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+            <input type="submit" value="Add Customer">
+        </form>
+    </p>
+{% endblock %}

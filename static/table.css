@@ -1,0 +1,51 @@
+/* table.css */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: rgb(248, 6, 6);
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: collapse;
+  }
+  
+ 
+  input[type="text"] {
+    padding: 5px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  .Warning {
+    color: red;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.error {
+  color: red;
+  margin-bottom: 14px;
+  font-weight: bold;
+}
+.Refresh {
+  font-weight: bold;
+}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}home{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style>
+    .h1 {
+      text-decoration: underline;
+    }
+ 
+  </style>
+{% endblock %}
+{% block content %}
+<h1>home Page</h1>
+  <h3>This is a site for librarians
+    To manage a set of books and customers.</h3>
+
+  <h2>About</h2>
+  <p>Welcome to our library management system!</p>
+  <p>Our website allows librarians to manage a collection of books and customers. Here are some of the features:</p>
+
+    <li>Add and view books: You can add new books to the collection, including their title, author, publication year, and type.</li>
+    <br>
+    <li>Add and view customers: You can add new customers to the library, including their name, city, and age.</li>
+    <br>
+    <li>Borrow and return books: Customers can borrow books from the library and return them within the specified loan duration.</li>
+    <br>
+    <li>Search: You can search for customers by name or books by title to retrieve relevant information.</li>
+    <br>
+    <li>View loans: You can see a list of all the current loans, including the customer's name, book's title, loan date, and return date.</li>
+    <br>
+    <li>View late loans: You can check for any loans that have not been returned on time.</li>
+    <br>
+
+  <p>Our goal is to provide an efficient and user-friendly platform for librarians to manage their library operations. We hope you find our system helpful!</p>
+{% endblock %}

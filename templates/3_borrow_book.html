@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block title %}Borrow Book{% endblock %}
+{% block head %}
+    {{ super() }}
+<link rel="stylesheet" type="text/css" href="static/secondary.css">
+{% endblock %}
+{% block content %}    
+    <h1>Borrow Book</h1>
+    <h3>If the loan is made, you will be transferred to the loans page</h3>
+    {% if error_message %}
+    <p class="error">{{ error_message }} <br> <hr> {{Refresh}}</p>
+    {% endif %}
+    <form method="POST" action="/borrow_book">
+        <label for="customer_id">Customer Name:</label>
+        <select id="customer_id" name="customer_id" required>
+            {% for customer in customers %}
+            <option value="{{ customer[0] }}">{{ customer[1] }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="book_id">Book Name:</label>
+        <select id="book_id" name="book_id" required>
+            {% for book in books %}
+            <option value="{{ book[1] }}">{{ book[1] }}</option>
+            {% endfor %}
+        </select>
+    </select>
+
+    <br><br>
+
+    <label for="loan_date">Loan Date:</label>
+    <input type="date" name="loan_date" id="loan_date" required>
+
+    <br><br>
+
+    <label for="loan_duration">Loan Duration:</label>
+    <select name="loan_duration" id="loan_duration">
+        <option value="2">2 days</option>
+        <option value="5">5 days</option>
+        <option value="10">10 days</option>
+    </select>
+    <br><br>
+        <input type="submit" value="Borrow">
+    </form>
+<p class="important">
+{% endblock %}
